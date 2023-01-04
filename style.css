@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-size: 62.5%;
+
+  --bg-color: #E1E1E6;
+  --text-svg-color: #323238; 
+  --second-svg-color: #FFFFFF;
+
+  --button-bg: #E1E1E6;
+  --controls-button-bs: 5px 5px 10px #b4b4b8, -5px -5px 10px #ffffff;
+  
+  --sound-button-bs: 8px 8px 16px #b4b4b8, -8px -8px 16px #ffffff;
+  
+  --sound-button-on-bg: #02799D;
+  --sound-button-on-bs: inset 16px 16px 10px #026989, inset -16px -16px 10px #0289b1;  
+}
+.dark {
+  --bg-color: #29292E;
+  --text-svg-color: #C4C4CC;
+  --second-svg-color: #FFFFFF;
+  
+  --button-bg: #29292E;
+  --controls-button-bs: 5px 5px 10px #202024,
+  -5px -5px 10px #323238;
+  
+  --sound-button-bs: 8px 8px 16px #161618, -8px -8px 16px #3c3c44;
+  
+  --sound-button-on-bg: #0A3442;
+  --sound-button-on-bs: inset 16px 16px 10px #092c38, inset -16px -16px 10px #0c3c4c;
+}
+body {
+  background-color: var(--bg-color);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  display: grid;
+  height: 100vh;
+  margin: 10rem;
+  place-content: center;
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.theme .light {
+  position: absolute;
+  top: 3.2rem;
+  left: 3.2rem;
+}
+.theme .dark {
+  position: absolute;
+  top: 3.6rem;
+  left: 3.6rem;
+}
+main {
+  margin-top: -5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  width: 28rem;
+  gap: 2rem;
+}
+
+.display {
+  font-size: 11rem;
+  display: flex;
+  color: var(--text-svg-color);
+}
+
+.controls {
+  text-align: center;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.controls button {
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  width: 48px;
+  border-radius: 91px;
+  background: var(--button-bg);
+  box-shadow: var(--controls-button-bs);
+}
+.controls button svg {
+  transition: all .2s;
+  stroke: var(--text-svg-color);
+}
+.controls button:hover svg {
+  transform: scale(1.2);
+}
+
+.sound-wrapper {
+  display: grid;
+  grid-template-areas: 'A B'
+  'C D' ;
+  place-items: center;
+  row-gap: 2.4rem;
+}
+.sound-wrapper button {
+  width: 10.8rem;
+  height: 12.2rem;
+  border-radius: 1.6rem;
+  background-color: var(--button-bg);
+  box-shadow: var(--sound-button-bs);
+}
+.sound-wrapper button svg {
+  margin-top: -2.4rem;
+  transform: scale(.8);
+  transition: all .2s;
+}
+.sound-wrapper button:hover svg {
+  transform: scale(0.9);
+} 
+.sound-wrapper button svg path {
+  fill: var(--text-svg-color);
+}
+.forest {
+  grid-area: 'A';
+}
+.rain {
+  grid-area: 'B';
+}
+.coffehouse {
+  grid-area: 'C';
+}
+.fireplace {
+  grid-area: 'D';
+}
+
+.input-wrapper {
+  position: relative;
+}
+.input-wrapper .volume-control {
+  position: absolute;
+  bottom: 2.8rem;
+  left: 2.4rem;
+}
+.volume-control {
+  appearance: none;
+  background: var(--text-svg-color);
+  outline: none;
+  width: 6rem;
+  height: 0.3rem;
+}
+.volume-control::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: var(--text-svg-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.sound-wrapper button.on {
+  background-color: var(--sound-button-on-bg);
+  box-shadow: var(--sound-button-on-bs);
+}
+.sound-wrapper button.on svg path {
+  fill: var(--second-svg-color);
+}
+.sound-wrapper button.on + .volume-control,
+.sound-wrapper button.on + .volume-control::-webkit-slider-thumb {
+  background-color: var(--second-svg-color);
+}
+
+button.hide {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .timer {
+    width: 32.1rem;
+  }  
+  .display {
+    font-size: 12.6rem;
+  }
+  .sound-wrapper {
+    row-gap: 4rem;
+    column-gap: 2.4rem;
+  }
+  .sound-wrapper button {
+    width: 13.8rem;
+    height: 15.2rem;
+    border-radius: 2.4rem;
+    gap: 3.2rem;
+  }
+  .sound-wrapper button svg {
+    transform: scale(1);
+  }
+  .sound-wrapper button:hover svg {
+    transform: scale(1.1);
+  }
+  .volume-control {
+    width: 9rem;
+    height: .4rem;
+  }
+  .volume-control::-webkit-slider-thumb {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  .volume-control::-moz-range-thumb {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+@media (min-width: 1024px) {
+  body {
+    margin: 0;
+  }
+  main {
+    flex-direction: row;
+    align-items: center;
+    gap: 19.2rem
+  }
+  .sound-wrapper {
+    row-gap: 4rem;
+    column-gap: 4rem;
+  }
+}
