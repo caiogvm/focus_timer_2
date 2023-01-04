@@ -1,10 +1,10 @@
 export default function Sound() {
-  const forest = new Audio('https://github.com/CaioGVM/focus_timer_2/blob/master/audios/forest.wav?raw=true')
-  const rain = new Audio('https://github.com/CaioGVM/focus_timer_2/blob/master/audios/rain.wav?raw=true')
-  const coffeehouse = new Audio('https://github.com/CaioGVM/focus_timer_2/blob/master/audios/coffehouse.wav?raw=true')
-  const fireplace = new Audio('https://github.com/CaioGVM/focus_timer_2/blob/master/audios/fireplace.wav?raw=true')
-  const buttonPress = new Audio('https://github.com/CaioGVM/focus_timer_2/blob/master/audios/button-press.wav?raw=true')
-  const kitchenTimer = new Audio('https://github.com/CaioGVM/focus_timer_2/blob/master/audios/kitchen-timer.mp3?raw=true')
+  const forest = new Audio('./audios/forest.wav')
+  const rain = new Audio('./audios/rain.wav')
+  const coffeehouse = new Audio('./audios/coffeehouse.wav')
+  const fireplace = new Audio('./audios/fireplace.wav')
+  const buttonPress = new Audio('./audios/button-press.wav')
+  const kitchenTimer = new Audio('./audios/kitchen-timer.mp3')
   forest.loop = true
   rain.loop = true
   coffeehouse.loop = true
